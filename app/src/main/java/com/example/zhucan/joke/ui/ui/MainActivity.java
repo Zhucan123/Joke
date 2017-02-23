@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import com.example.zhucan.joke.R;
 import com.example.zhucan.joke.ui.Adaputers.PullToRefreshListViewAdaputer;
@@ -32,6 +33,8 @@ public class MainActivity extends Activity {
     private List<GetJson> mlist=null;
     private PullToRefreshListViewAdaputer adaputer;
     private String KEY_PAGE="data";
+    private int image[]={R.drawable.back_1,R.drawable.back_2,R.drawable.back_3,
+            R.drawable.back_4,R.drawable.back6,R.drawable.back7,R.drawable.back8};
 
 
 
@@ -39,6 +42,8 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        LinearLayout layout=(LinearLayout)findViewById(R.id.myback) ;
+        layout.setBackgroundResource(image[(int)(Math.random()*7)]);
 
         lv = (PullToRefreshListView) findViewById(R.id.list);
         mlist=new ArrayList<>() ;
