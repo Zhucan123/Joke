@@ -1,4 +1,4 @@
-include ':app'
+include ':app', ':samples', ':librares', ':library1'
 
 
 include ':library'

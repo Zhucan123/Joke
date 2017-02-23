@@ -6,5 +6,6 @@
     <color name="dividerColor">#28ffffff</color>
     <color name="back">#efefef</color>
     <color name="textColor">#ccc27777</color>
-    <color name="buttonbc">#af7340ff</color>
+    <color name="buttonbc2">#25af9f</color>
+    <color name="buttonbc1">#af2e898f</color>
 </resources>
