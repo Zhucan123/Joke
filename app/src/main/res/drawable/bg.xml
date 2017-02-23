@@ -7,16 +7,9 @@
         android:bottomLeftRadius="24dp"
         android:bottomRightRadius="6dp"
         />
-    <stoke android:width="6dp"
-        android:color="#f0f"/>
-    <gradient android:startColor="#f00"
-        android:centerColor="#0f0"
+    <solid android:color="@color/colorAccent">
 
-        android:endColor="#00f"
-        android:type="sweep"
-
-        />
-
+    </solid>
 
 
 

@@ -2,52 +2,37 @@ package com.example.zhucan.joke.ui.ui;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
 import com.example.zhucan.joke.R;
 import com.example.zhucan.joke.ui.Adaputers.PullToRefreshListViewAdaputer;
 import com.example.zhucan.joke.ui.config.Configs;
 import com.example.zhucan.joke.ui.utils.Http.GetJson;
 import com.example.zhucan.joke.ui.utils.HttpManager;
-
+import com.example.zhucan.joke.ui.utils.SharedPreference;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
-
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Map;
 
-import static com.bumptech.glide.gifdecoder.GifHeaderParser.TAG;
+
 
 
 public class MainActivity extends Activity {
 
     private PullToRefreshListView lv;
-    private int JOKE_PAGE = 1;
+    private int JOKE_PAGE = 0;
     private List<GetJson> mlist=null;
     private PullToRefreshListViewAdaputer adaputer;
+    private String KEY_PAGE="data";
+
 
 
     @Override
@@ -57,6 +42,10 @@ public class MainActivity extends Activity {
 
         lv = (PullToRefreshListView) findViewById(R.id.list);
         mlist=new ArrayList<>() ;
+       final SharedPreferences  s=getSharedPreferences("data",0);
+       final SharedPreferences.Editor editor=s.edit();
+        JOKE_PAGE=s.getInt(KEY_PAGE,1)+1;
+
 
         MessageTask task = new MessageTask(MainActivity.this, JOKE_PAGE);
         task.execute();
@@ -71,6 +60,9 @@ public class MainActivity extends Activity {
                 JOKE_PAGE++;
                 MessageTask messageTask=new MessageTask(MainActivity.this,JOKE_PAGE);
                 messageTask.execute();
+                int page=s.getInt(KEY_PAGE,1);
+                editor.putInt(KEY_PAGE,page+1);
+                editor.commit();
             }
         });
     }
@@ -126,4 +118,5 @@ public class MainActivity extends Activity {
         }
 
     }
+
 }

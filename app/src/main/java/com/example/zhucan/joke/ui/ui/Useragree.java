@@ -1,4 +1,4 @@
-package com.example.zhucan.joke.ui;
+package com.example.zhucan.joke.ui.ui;
 
 import android.app.Activity;
 import android.os.Bundle;

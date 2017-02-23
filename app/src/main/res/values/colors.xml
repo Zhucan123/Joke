@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="dividerColor">#efefef</color>
+    <color name="colorPrimary">#3fa9b5</color>
+    <color name="colorPrimaryDark">#b1308e9f</color>
+    <color name="colorAccent">#7340ff</color>
+    <color name="dividerColor">#28ffffff</color>
+    <color name="back">#efefef</color>
+    <color name="textColor">#ccc27777</color>
+    <color name="buttonbc">#af7340ff</color>
 </resources>

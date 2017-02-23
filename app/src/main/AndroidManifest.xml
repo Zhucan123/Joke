@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.zhucan.joke">
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
         android:allowBackup="true"
@@ -14,22 +17,22 @@
             android:theme="@style/AppTheme">
 
         </activity>
-       <activity android:name=".ui.Useragree"></activity>
-        <activity android:name=".ui.MainActivity1"></activity><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+       <activity android:name=".ui.ui.Useragree"></activity>
+        <activity
+            android:name=".ui.ui.LoginActivity"
+            android:theme="@style/AppTheme" /><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
-        <activity android:name=".ui.Welcome"
+        <activity android:name=".ui.ui.Welcome"
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait"
-            android:label="welcome"
+
+            android:label="@string/app_name"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
 
     </application>
 

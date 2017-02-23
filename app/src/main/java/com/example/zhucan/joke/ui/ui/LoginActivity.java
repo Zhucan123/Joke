@@ -1,4 +1,4 @@
-package com.example.zhucan.joke.ui;
+package com.example.zhucan.joke.ui.ui;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.zhucan.joke.R;
-import com.example.zhucan.joke.ui.ui.MainActivity;
+import com.example.zhucan.joke.ui.ResponseCode;
 import com.example.zhucan.joke.ui.utils.HttpManager;
 import com.google.gson.Gson;
 
@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainActivity1 extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
     private EditText username=null;
     private EditText password=null;
     private Button longin=null;
@@ -39,7 +39,7 @@ public class MainActivity1 extends AppCompatActivity {
             public void onClick(View v) {
                 String name=username.getText().toString();
                 String pass=password.getText().toString();
-                LoginTask task=new LoginTask(MainActivity1.this,name,pass);
+                LoginTask task=new LoginTask(LoginActivity.this,name,pass);
                 task.execute();
 
 
@@ -51,7 +51,7 @@ public class MainActivity1 extends AppCompatActivity {
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity1.this).setTitle("用户协议")
+                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this).setTitle("用户协议")
                         .setIcon(R.mipmap.ic_launcher).setMessage("我的地盘我做主...");
                 setPositiveButton(builder);
                 setNegativeButton(builder).create().show();
@@ -63,7 +63,7 @@ public class MainActivity1 extends AppCompatActivity {
                 return builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(MainActivity1.this,"已阅读本内容", Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivity.this,"已阅读本内容", Toast.LENGTH_LONG).show();
                     }
                 });
             }
@@ -71,7 +71,7 @@ public class MainActivity1 extends AppCompatActivity {
                 return builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(MainActivity1.this,"不同意本协议", Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivity.this,"不同意本协议", Toast.LENGTH_LONG).show();
                     }
                 });
             }
@@ -79,7 +79,7 @@ public class MainActivity1 extends AppCompatActivity {
         });
     }
             public void ture(View view) {
-                Intent intent = new Intent(MainActivity1.this, Useragree.class);
+                Intent intent = new Intent(LoginActivity.this, Useragree.class);
                 startActivity(intent);
 
             }

@@ -7,11 +7,8 @@
         android:bottomLeftRadius="6dp"
         android:bottomRightRadius="24dp"
         />
-    <stoke android:width="12dp"
-        android:color="#f0f"/>
-    <gradient android:startColor="#00f"
-        android:centerColor="#f00"
-        android:endColor="#0f0"
-        android:type="sweep"
-        ></gradient>
+
+   <solid android:color="@color/buttonbc">
+
+   </solid>
 </shape>
